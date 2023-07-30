@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modernlogintute/view/pages/profile_pages.dart';
-
+import '../view/pages/grid.dart';
 import '../view/pages/cart.dart';
 import '../view/pages/home.dart';
 import '../view/pages/pages.dart';

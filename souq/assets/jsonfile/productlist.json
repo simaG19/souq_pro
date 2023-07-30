@@ -1,0 +1,54 @@
+{
+"productlist":
+[
+  {
+    "id": 0,
+    "name": "Beach Cap",
+    "category": "NOP",
+    "imageUrl": "https://souq.dalloltech.com/single-product.html",
+    "oldPrice": "$42",
+    "price": "$13"
+  },
+  {
+    "id": 1,
+    "name": "Wooden Sofa",
+    "category": "Men",
+    "oldPrice": "$99",
+    "imageUrl": "https://m.media-amazon.com/images/I/61hMQOHmEIL._AC_UL320_.jpg",
+    "price": "$74"
+  },
+  {
+    "id": 2,
+    "name": "Roof Lamp",
+    "category": "Men",
+    "imageUrl": "https://souq.dalloltech.com/img/product/6.png",
+    "oldPrice": "$113",
+    "price": "$99"
+  },
+  {
+    "id": 3,
+    "name": "Sneaker Shoes",
+    "category": "Men",
+    "imageUrl": "https://souq.dalloltech.com/img/product/9.png",
+    "oldPrice": "$92",
+    "price": "$87"
+  },
+  {
+    "id": 4,
+    "name": "Wooden Chair",
+    "category": "men",
+    "imageUrl": "https://souq.dalloltech.com/img/product/8.png",
+    "oldPrice": "$25",
+    "price": "$21"
+  },
+  {
+    "id": 5,
+    "name": "Polo Shirts",
+    "category": "Men",
+    "imageUrl": "https://souq.dalloltech.com/img/product/4.png",
+    "oldPrice": "$41",
+    "price": "$38"
+  }
+]
+
+}

@@ -1,13 +1,25 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 //import 'package:simon/components/appbar.dart';
-
+import 'package:flutter/services.dart' as rootBundle;
+import 'package:modernlogintute/lib/ProductDataModel.dart';
 import '../components/appbar.dart';
+import 'package:flutter/services.dart' as rootBundle;
 
 class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
+
+  Future<List<ProductDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/productlist.json');
+    final list = json.decode(jsondata) as List<dynamic>;
+
+    return list.map((e) => ProductDataModel.fromJson(e)).toList();
+  }
 }
 
 class _HomeState extends State<Home> {
@@ -375,6 +387,10 @@ class _HomeState extends State<Home> {
       ],
     );
   }
+
+//  List<Map<String, dynamic>> jsonData = jsonDecode(jsonString);
+//     List<ProductDataModel> products =
+//         jsonData.map((json) => ProductDataModel.fromJson(json)).toList();
 }
 
 class SaleItem extends StatelessWidget {
@@ -568,6 +584,7 @@ class Banner extends StatelessWidget {
             ],
           ),
           const SizedBox(width: 35),
+          Image.asset(image1),
         ],
       ),
     );

@@ -6,11 +6,13 @@ class MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      backgroundColor: Colors.white,
       pinned: true,
       elevation: 0,
       leading: Image.asset('assets/logo-small.png'),
       actions: [
         IconButton(
+          color: Colors.grey[800],
           icon: const Icon(Icons.sort),
           iconSize: 33,
           onPressed: () => Scaffold.of(context).openDrawer(),
