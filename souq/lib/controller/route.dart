@@ -8,14 +8,14 @@ import '../view/pages/settings.dart';
 import '../view/pages/support.dart';
 import '../view/pages/profile_pages.dart';
 
-class route extends StatefulWidget {
-  const route({Key? key}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<route> {
+class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _currentIndex = 0;
 
@@ -67,9 +67,14 @@ class _MyHomePageState extends State<route> {
             icon: Icon(Icons.account_balance_wallet_sharp),
             label: 'Cart',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Pages'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
+            icon: Icon(Icons.favorite),
+            label: 'Pages',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
         ],
       ),
     );
