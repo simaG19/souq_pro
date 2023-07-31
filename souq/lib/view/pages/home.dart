@@ -638,11 +638,10 @@ class TopProduct extends StatelessWidget {
                     ]),
                 Image.network(
                   image,
-                  width: 80,
-                  height: 90,
-                  fit: BoxFit.fill,
+                  width: 140,
+                  height: 140,
+                  fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
-                    print(error);
                     return Image.asset('assets/apple.png', width: 80, height: 90);
                   },
                 ),
