@@ -1,0 +1,44 @@
+{
+    "productlist1": [
+      {
+        "id": 0,
+        "name": "Modern Red Sofa",
+        "category": "NOP",
+        "status": "Sale",
+        "imageUrl": "https://souq.dalloltech.com/img/product/10.png",
+        "oldPrice": "$89",
+        "price": "$64",
+        "coin":"4.99(7)   "
+      },
+      {
+        "id": 1,
+        "name": "Office Chair",
+        "category": "Men",
+        "status": "Sale",
+         "imageUrl": "https://souq.dalloltech.com/img/product/7.png",
+        "oldPrice": "$160",
+        "price": "$100",
+        "coin":"4.99(7)   "
+      },
+      {
+        "id": 2,
+        "name": "Sun Glasses",
+        "category": "Men",
+        "status": "New",
+        "imageUrl": "https://souq.dalloltech.com/img/product/12.png",
+        "oldPrice": "$32",
+        "price": "$24",
+        "coin":"4.99(7)   "
+      },
+      {
+        "id": 3,
+        "name": "Wall clock",
+        "category": "Men",
+        "status": "New",
+        "imageUrl": "https://souq.dalloltech.com/img/product/13.png",
+        "oldPrice": "$47",
+        "price": "$31",
+        "coin":"4.99(7)   "
+      }
+    ]
+}

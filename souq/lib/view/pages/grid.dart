@@ -2,21 +2,20 @@
 
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
-// import 'package:modernlogintute/lib/ProductDataModel.dart';
-// import 'package:flutter/assets/jsonfile/productlist.json';
+// import 'package:modernlogintute/lib/product_data_model.dart';
 
 // @override
 //   Widget build(BuildContext context) {
-//     Map<String, dynamic> jsonData = jsonDecode(productlist);
 //     List products = (jsonData['productlist'] as List<dynamic>)
 //         .map((json) => ProductDataModel.fromJson(json))
 //         .toList();
+//     Map<String, dynamic> jsonData = jsonDecode(products);
 
 //     return MaterialApp(
 //       home: Scaffold(
 //         appBar: AppBar(title: Text('Product List')),
 //         body: GridView.builder(
-//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
 //             crossAxisCount: 2, // Number of columns in the grid
 //             crossAxisSpacing: 10, // Spacing between columns
 //             mainAxisSpacing: 10, // Spacing between rows

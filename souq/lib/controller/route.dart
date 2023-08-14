@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:modernlogintute/view/pages/profile_pages.dart';
+import 'package:modernlogintute/view/pages/shop.dart';
 import '../view/pages/grid.dart';
 import '../view/pages/cart.dart';
 import '../view/pages/home.dart';
+import '../view/pages/shop.dart';
 import '../view/pages/pages.dart';
 import '../view/pages/settings.dart';
 import '../view/pages/support.dart';
 import '../view/pages/profile_pages.dart';
 
-class route extends StatefulWidget {
-  const route({Key? key}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<route> {
+class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _currentIndex = 0;
 
@@ -37,7 +39,8 @@ class _MyHomePageState extends State<route> {
       drawer: const profile_pages(),
       body: IndexedStack(
         index: _currentIndex,
-        children: const [
+        children: [
+          //Shop(),
           Home(),
           Support(),
           Cart(),
@@ -48,7 +51,7 @@ class _MyHomePageState extends State<route> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
-        elevation: 25,
+        elevation: 45,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey[500],
         selectedFontSize: 13,
@@ -67,9 +70,14 @@ class _MyHomePageState extends State<route> {
             icon: Icon(Icons.account_balance_wallet_sharp),
             label: 'Cart',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Pages'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
+            icon: Icon(Icons.favorite),
+            label: 'Pages',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
         ],
       ),
     );
