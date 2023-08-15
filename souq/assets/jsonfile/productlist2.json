@@ -1,0 +1,40 @@
+{
+    "productlist2": [
+      {
+        "id": 0,
+        "name": "Blue SkateBoard",
+        "category": "NOP",
+        "status": "Sale",
+        "imageUrl": "https://souq.dalloltech.com/img/product/14.png",
+        "oldPrice": "$89",
+        "price": "$64"
+      },
+      {
+        "id": 1,
+        "name": "Travel Bag",
+        "category": "Men",
+        "status": "New",
+        "oldPrice": "$99",
+        "imageUrl": "https://souq.dalloltech.com/img/product/15.png",
+        "price": "$74"
+      },
+      {
+        "id": 2,
+        "name": "Cotton T-shirts",
+        "category": "Men",
+        "status": "Sale",
+        "imageUrl": "https://souq.dalloltech.com/img/product/16.png",
+        "oldPrice": "$89",
+        "price": "$64"
+      },
+      {
+        "id": 3,
+        "name": "Roof Lamp",
+        "category": "Men",
+        "status": "-15%",
+        "imageUrl": "https://souq.dalloltech.com/img/product/6.png",
+        "oldPrice": "$89",
+        "price": "$64"
+      }
+    ]
+  }

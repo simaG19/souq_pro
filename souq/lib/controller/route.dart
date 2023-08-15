@@ -35,7 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: const profile_pages(),
       body: IndexedStack(
         index: _currentIndex,
-        children: const [
+        children: [
+          //Shop(),
           Home(),
           Support(),
           Cart(),
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
-        elevation: 25,
+        elevation: 45,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey[500],
         selectedFontSize: 13,
