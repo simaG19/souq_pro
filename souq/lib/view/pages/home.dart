@@ -1,9 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:modernlogintute/lib/json_data.dart';
 //import 'package:simon/components/appbar.dart';
-import 'package:flutter/services.dart' as root_bundle;
+
 import 'package:modernlogintute/lib/product_data_model.dart';
+import 'package:modernlogintute/view/pages/all_products.dart';
 import '../components/appbar.dart';
 
 class Home extends StatefulWidget {
@@ -76,15 +76,6 @@ class _HomeState extends State<Home> {
   //     percentSold: 92,
   //   ),
   // ];
-
-  Future<List<ProductDataModel>> readJsonData() async {
-    final jsonData = await root_bundle.rootBundle
-        .loadString('assets/jsonfile/productlist.json');
-    final map = json.decode(jsonData) as Map<String, dynamic>;
-    final List<dynamic> list = map['productlist'] as List<dynamic>;
-    return list.map((e) => ProductDataModel.fromJson(e)).toList();
-    // return list.map((e) => ProductDataModel.fromJson(e)).toList();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -328,7 +319,7 @@ class _HomeState extends State<Home> {
                                       BorderRadius.all(Radius.circular(5))),
                             ),
                             onPressed: () async {
-                              await readJsonData();
+                              await JsonData.readJsonData();
                             },
                             child: const Text(
                               'View all',
@@ -386,10 +377,17 @@ class _HomeState extends State<Home> {
                                 const Color.fromARGB(255, 231, 61, 115),
                             foregroundColor: Colors.white,
                             shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const AllProducts(),
+                              ),
+                            );
+                          },
                           child: const Text(
                             'View all',
                             style: TextStyle(fontSize: 14),
@@ -401,7 +399,7 @@ class _HomeState extends State<Home> {
                 ),
                 const SizedBox(height: 20),
                 FutureBuilder<List<ProductDataModel>>(
-                  future: readJsonData(),
+                  future: JsonData.readJsonData(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       _productModels = snapshot.data!;
@@ -642,7 +640,8 @@ class TopProduct extends StatelessWidget {
                   height: 140,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
-                    return Image.asset('assets/apple.png', width: 80, height: 90);
+                    return Image.asset('assets/apple.png',
+                        width: 80, height: 90);
                   },
                 ),
                 const SizedBox(height: 7),
@@ -656,11 +655,22 @@ class TopProduct extends StatelessWidget {
                 ),
                 const SizedBox(height: 7),
                 RichText(
-                  text: const TextSpan(
-                    style: TextStyle(
+                  text: TextSpan(
+                    style: const TextStyle(
                       color: Color.fromARGB(255, 9, 83, 143),
                       fontSize: 16,
                     ),
+                    children: [
+                      TextSpan(text: '$newPrice  '),
+                      TextSpan(
+                        text: oldPrice,
+                        style: const TextStyle(
+                          color: Colors.red,
+                          decoration: TextDecoration.lineThrough,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 7),

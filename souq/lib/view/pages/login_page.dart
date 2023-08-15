@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modernlogintute/view/components/my_button.dart';
 import 'package:modernlogintute/view/components/my_textfield.dart';
-import 'package:modernlogintute/view/components/square_tile.dart';
+// import 'package:modernlogintute/view/components/square_tile.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
