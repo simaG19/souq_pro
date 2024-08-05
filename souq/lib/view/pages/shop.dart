@@ -5,14 +5,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 //import 'package:simon/components/appbar.dart';
 import 'package:flutter/services.dart' as root_bundle;
-import 'package:modernlogintute/lib/product_data_model.dart';
-import '../../lib/product_data_model1.dart';
-import '../../lib/product_data_model2.dart';
+import 'package:modernlogintute/model/product_data_model.dart';
+import '../../model/product_data_model1.dart';
+import '../../model/product_data_model2.dart';
 import '../components/appbar.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../lib/product_data_model.dart';
+import '../../model/product_data_model.dart';
 import '../components/appbar.dart';
 import '../components/appbar1.dart';
 
