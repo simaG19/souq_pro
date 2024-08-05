@@ -1,12 +1,17 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:modernlogintute/lib/json_data.dart';
 //import 'package:simon/components/appbar.dart';
+<<<<<<< HEAD
 import 'package:flutter/services.dart' as root_bundle;
 import 'package:modernlogintute/model/product_data_model.dart';
 import 'package:modernlogintute/view/pages/weekly_best_sellers.dart';
 import '../../model/product_data_model1.dart';
 import '../../model/product_data_model2.dart';
+=======
+
+import 'package:modernlogintute/lib/product_data_model.dart';
+import 'package:modernlogintute/view/pages/all_products.dart';
+>>>>>>> fb3986464b082780a18607d271d0a61fdb8810d6
 import '../components/appbar.dart';
 import 'all_products.dart';
 import 'featured_products.dart';
@@ -23,12 +28,6 @@ class _HomeState extends State<Home> {
   int _activePage = 0;
   late List<ProductDataModel> _productModels;
   late List<TopProduct> _topProducts;
-
-  late List<ProductDataModel1> _productModels1;
-  late List<TopProduct1> _topProducts1;
-
-  late List<ProductDataModel2> _productModels2;
-  late List<TopProduct2> _topProducts2;
 
   final List<Widget> _pages = [
     const Banner(
@@ -87,60 +86,6 @@ class _HomeState extends State<Home> {
   //     percentSold: 92,
   //   ),
   // ];
-
-  // final List<Widget> _saleItems = [
-  //   const SaleItem(
-  //     image: 'assets/1.png',
-  //     title: 'Black Table Lamp',
-  //     newPrice: '\$7.99',
-  //     oldPrice: '\$15',
-  //     percentSold: 92,
-  //   ),
-
-  final List<Widget> _Ban = [
-    const Ban(
-      header1: 'Winter Sale 50% off',
-      subtitle1: 'susha',
-      color1: Color.fromARGB(255, 74, 96, 235),
-      image2: 'assets/girl.png',
-    ),
-  ];
-
-  Future<List<ProductDataModel>> readJsonData() async {
-    final jsonData = await root_bundle.rootBundle
-        .loadString('assets/jsonfile/productlist.json');
-    final map = json.decode(jsonData) as Map<String, dynamic>;
-    final List<dynamic> list = map['productlist'] as List<dynamic>;
-    return list.map((e) => ProductDataModel.fromJson(e)).toList();
-    // return list.map((e) => ProductDataModel.fromJson(e)).toList();
-  }
-
-  Future<List<ProductDataModel1>> readJsonData1() async {
-    final jsonData1 = await root_bundle.rootBundle
-        .loadString('assets/jsonfile/productlist1.json');
-    final map = json.decode(jsonData1) as Map<String, dynamic>;
-    final List<dynamic> list = map['productlist1'] as List<dynamic>;
-    return list.map((e) => ProductDataModel1.fromJson(e)).toList();
-    // return list.map((e) => ProductDataModel.fromJson(e)).toList();
-  }
-
-  // Future<List<ProductDataModel2>> readJsonData2() async {
-  //   final jsonData2 = await root_bundle.rootBundle
-  //       .loadString('assets/jsonfile/productlist2.json');
-  //   final map = json.decode(jsonData2) as Map<String, dynamic>;
-  //   final List<dynamic> list = map['productlist2'] as List<dynamic>;
-  //   return list.map((e) => ProductDataModel2.fromJson(e)).toList();
-  //   // return list.map((e) => ProductDataModel.fromJson(e)).toList();
-  // }
-
-  Future<List<ProductDataModel2>> readJsonData2() async {
-    final jsonData2 = await root_bundle.rootBundle
-        .loadString('assets/jsonfile/productlist2.json');
-    final map = json.decode(jsonData2) as Map<String, dynamic>;
-    final List<dynamic> list = map['productlist2'] as List<dynamic>;
-    return list.map((e) => ProductDataModel2.fromJson(e)).toList();
-    // return list.map((e) => ProductDataModel.fromJson(e)).toList();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -384,7 +329,7 @@ class _HomeState extends State<Home> {
                                       BorderRadius.all(Radius.circular(5))),
                             ),
                             onPressed: () async {
-                              await readJsonData();
+                              await JsonData.readJsonData();
                             },
                             child: const Text(
                               'View all',
@@ -464,7 +409,7 @@ class _HomeState extends State<Home> {
                 ),
                 const SizedBox(height: 20),
                 FutureBuilder<List<ProductDataModel>>(
-                  future: readJsonData(),
+                  future: JsonData.readJsonData(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       _productModels = snapshot.data!;
@@ -493,6 +438,7 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
+<<<<<<< HEAD
         // const Padding(
         //   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         //   child: Text("Hello, world!"),
@@ -766,6 +712,8 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
+=======
+>>>>>>> fb3986464b082780a18607d271d0a61fdb8810d6
       ],
     );
   }
@@ -982,7 +930,7 @@ class TopProduct extends StatelessWidget {
                         width: 80, height: 90);
                   },
                 ),
-                const SizedBox(height: 35),
+                const SizedBox(height: 7),
                 Text(
                   title,
                   style: const TextStyle(
@@ -991,31 +939,27 @@ class TopProduct extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                const SizedBox(height: 5),
-                Row(
-                  children: <Widget>[
-                    Text(
-                      newPrice,
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 102, 232, 41),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        //overflow: TextOverflow.ellipsis,
-                      ),
+                const SizedBox(height: 7),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 9, 83, 143),
+                      fontSize: 16,
                     ),
-                    const SizedBox(width: 5),
-                    Text(
-                      oldPrice,
-                      style: const TextStyle(
-                        decoration: TextDecoration.lineThrough,
-                        color: Color.fromARGB(218, 86, 99, 90),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        overflow: TextOverflow.ellipsis,
+                    children: [
+                      TextSpan(text: '$newPrice  '),
+                      TextSpan(
+                        text: oldPrice,
+                        style: const TextStyle(
+                          color: Colors.red,
+                          decoration: TextDecoration.lineThrough,
+                          fontSize: 14,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+                const SizedBox(height: 7),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -1033,368 +977,9 @@ class TopProduct extends StatelessWidget {
                     ]),
                     ElevatedButton(
                       onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        backgroundColor: Colors.green[500],
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  // class TopProduct extends StatelessWidget {
-  // const TopProduct({
-  //   super.key,
-  //   this.status = 'Sale',
-  //   required this.image,
-  //   required this.title,
-  //   required this.oldPrice,
-  //   required this.newPrice,
-  // });
-
-  // final String status;
-  // final String image;
-  // final String title;
-  // final String oldPrice;
-  // final String newPrice;
-}
-
-class Ban extends StatelessWidget {
-  const Ban({
-    super.key,
-    required this.header1,
-    required this.subtitle1,
-    required this.image2,
-    required this.color1,
-  });
-
-  final String header1;
-  final String subtitle1;
-  final Color color1;
-  final String image2;
-
-  Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      padding: const EdgeInsets.fromLTRB(30, 35, 5, 0),
-      color: color1,
-      child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                header1,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 7),
-              Text(
-                subtitle1,
-                style: const TextStyle(color: Colors.white),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 249, 111, 111),
-                  foregroundColor: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text('Shooop Today'),
-              ),
-            ],
-          ),
-          //         Image.asset(image2),
-          //         width: 100,
-          // height: 100,
-        ],
-      ),
-    );
-  }
-}
-
-class TopProduct1 extends StatelessWidget {
-  const TopProduct1({
-    super.key,
-    this.status = 'Sale',
-    required this.image,
-    required this.title,
-    required this.oldPrice,
-    required this.newPrice,
-    required this.coin,
-  });
-
-  final String status;
-
-  final String image;
-  final String title;
-  final String oldPrice;
-  final String newPrice;
-  final String coin;
-
-  @override
-  Widget build(BuildContext context) {
-    Color statusColor;
-    if (status == 'Sale') {
-      statusColor = Colors.green;
-    } else if (status == 'New') {
-      statusColor = const Color.fromARGB(255, 11, 11, 193);
-    } else {
-      statusColor = const Color.fromARGB(255, 231, 61, 115);
-    }
-
-    return InkWell(
-      onTap: () {},
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width / 1,
-        height: 180,
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          margin: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Column(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Row(
-                  children: <Widget>[
-                    const Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(7, 15, 0, 10),
-                          child: Text('sts'),
-                        ),
-                        SizedBox(height: 105),
-                        Padding(
-                          padding: EdgeInsets.all(2.0),
-                          child: Icon(
-                            Icons.favorite_outline_outlined,
-                            color: Color.fromARGB(255, 54, 14, 183),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                      child: Image.network(
-                        image,
-                        width: 120,
-                        height: 120,
-                        fit: BoxFit.contain,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Image.asset('assets/apple.png',
-                              width: 80, height: 90);
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.fromLTRB(1, 0, 50, 5),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: <Widget>[
-                          const Icon(
-                            Icons.monetization_on,
-                            color: Color.fromARGB(255, 54, 14, 183),
-                          ),
-                          Text(newPrice,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              )),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(oldPrice,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                color: Colors.red,
-                                decoration: TextDecoration.lineThrough,
-                              )),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.stars_rounded,
-                            color: Color.fromARGB(255, 232, 246, 45),
-                          ),
-                          Text(coin,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                color: Colors.grey,
-                              )),
-                        ],
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 35, 194, 120),
-                          foregroundColor: Colors.white,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.shop,
-                            ),
-                            Text(
-                              'Buy Now',
-                              style: TextStyle(fontSize: 12),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ]),
-
-              const SizedBox(height: 5),
-              // Row(
-              //   children: <Widget>[
-              //     Text(
-              //       newPrice,
-              //       style: const TextStyle(
-              //         color: Color.fromARGB(255, 102, 232, 41),
-              //         fontSize: 15,
-              //         fontWeight: FontWeight.w500,
-              //         //overflow: TextOverflow.ellipsis,
-              //       ),
-              //     ),
-              //     const SizedBox(width: 5),
-              //     Text(
-              //       oldPrice,
-              //       style: const TextStyle(
-              //         decoration: TextDecoration.lineThrough,
-              //         color: Color.fromARGB(218, 86, 99, 90),
-              //         fontSize: 15,
-              //         fontWeight: FontWeight.w500,
-              //         overflow: TextOverflow.ellipsis,
-              //       ),
-              //     ),
-              //   ],
-              // ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class TopProduct2 extends StatelessWidget {
-  const TopProduct2({
-    super.key,
-    this.status = 'Sale',
-    required this.image,
-    required this.title,
-    required this.oldPrice,
-    required this.newPrice,
-  });
-
-  final String status;
-  final String image;
-  final String title;
-  final String oldPrice;
-  final String newPrice;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width / 2.2,
-        child: Card(
-          margin: const EdgeInsets.symmetric(horizontal: 7.0),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(7, 0, 7, 8),
-            child: Column(
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        icon: const Icon(
-                          Icons.star,
-                          color: Color.fromARGB(255, 198, 178, 44),
-                        ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.favorite_border),
-                        onPressed: () {},
-                      ),
-                    ]),
-                Image.network(
-                  image,
-                  width: 120,
-                  height: 120,
-                  fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Image.asset('assets/apple.png',
-                        width: 80, height: 90);
-                  },
-                ),
-                const SizedBox(height: 35),
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w500,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: <Widget>[
-                    Text(
-                      newPrice,
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 102, 232, 41),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        //overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    const SizedBox(width: 5),
-                    Text(
-                      oldPrice,
-                      style: const TextStyle(
-                        decoration: TextDecoration.lineThrough,
-                        color: Color.fromARGB(218, 86, 99, 90),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      child: const Icon(Icons.add),
                     ),
                   ],
                 ),

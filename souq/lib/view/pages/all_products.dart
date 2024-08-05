@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:modernlogintute/model/json_data.dart';
 import 'package:modernlogintute/model/product_data_model.dart';
+=======
+import 'package:modernlogintute/lib/json_data.dart';
+import 'package:modernlogintute/lib/product_data_model.dart';
+>>>>>>> fb3986464b082780a18607d271d0a61fdb8810d6
 import 'package:modernlogintute/view/pages/home.dart';
 
 class AllProducts extends StatefulWidget {
@@ -32,7 +37,11 @@ class _AllProductsState extends State<AllProducts> {
           IconButton(
             icon: const Icon(Icons.settings),
             color: Colors.grey[700],
+<<<<<<< HEAD
             onPressed: () => Scaffold.of(context).openDrawer(),
+=======
+            onPressed: () {},
+>>>>>>> fb3986464b082780a18607d271d0a61fdb8810d6
           ),
         ],
         title: Text(

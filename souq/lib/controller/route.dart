@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:modernlogintute/view/pages/profile_pages.dart';
-import 'package:modernlogintute/view/pages/shop.dart';
-import '../view/pages/grid.dart';
 import '../view/pages/cart.dart';
 import '../view/pages/home.dart';
-import '../view/pages/shop.dart';
 import '../view/pages/pages.dart';
 import '../view/pages/settings.dart';
 import '../view/pages/support.dart';
-import '../view/pages/profile_pages.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -67,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Support',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance_wallet_sharp),
+            icon: Icon(Icons.shopping_cart),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
