@@ -3,10 +3,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 //import 'package:simon/components/appbar.dart';
 import 'package:flutter/services.dart' as root_bundle;
-import 'package:modernlogintute/lib/product_data_model.dart';
-import '../../lib/product_data_model1.dart';
-import '../../lib/product_data_model2.dart';
+import 'package:modernlogintute/model/product_data_model.dart';
+import 'package:modernlogintute/view/pages/weekly_best_sellers.dart';
+import '../../model/product_data_model1.dart';
+import '../../model/product_data_model2.dart';
 import '../components/appbar.dart';
+import 'all_products.dart';
+import 'featured_products.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -29,7 +32,7 @@ class _HomeState extends State<Home> {
 
   final List<Widget> _pages = [
     const Banner(
-      header: 'Amazon Echo',
+      header: 'Agbhfyguymazon Echo',
       subtitle: '3rd Generation, Charcoal',
       color: Color.fromARGB(255, 45, 180, 150),
       image1: 'assets/s1.jpg',
@@ -443,7 +446,13 @@ class _HomeState extends State<Home> {
                                   BorderRadius.all(Radius.circular(5)),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const AllProducts(),
+                              ),
+                            );
+                          },
                           child: const Text(
                             'View all',
                             style: TextStyle(fontSize: 14),
@@ -560,7 +569,13 @@ class _HomeState extends State<Home> {
                                   BorderRadius.all(Radius.circular(5)),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const WeeklyBestSellers(),
+                              ),
+                            );
+                          },
                           child: const Text(
                             'View All',
                             style: TextStyle(fontSize: 14),
@@ -671,7 +686,13 @@ class _HomeState extends State<Home> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(5))),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const FeaturedProducts(),
+                            ),
+                          );
+                        },
                         child: const Text('View all',
                             style: TextStyle(
                               fontSize: 14,
